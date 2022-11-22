@@ -1,8 +1,10 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
+
 /**
  * struct flags - struct containing flags to "turn on"
  * when a flag specifier is passed to _printf()
@@ -28,6 +30,11 @@ typedef struct printHandler
 	char c;
 	int (*f)(va_list ap, flags_t *f);
 } ph;
+
+int _print_format(const char *format, va_list args);
+int _print_spec(char format, va_list args);
+int _print_invalid_spec(char prev_format, char format, int count);
+int _validate_char(char _type);
 int print_int(va_list l, flags_t *f);
 void print_number(int n);
 int print_unsigned(va_list l, flags_t *f);
